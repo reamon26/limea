@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" serverName="Limea (1)">
+    <serverData>
+      <paths name="Limea (1)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/limea.ru/docs" local="$PROJECT_DIR$" web="Limea" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+  </component>
+</project>

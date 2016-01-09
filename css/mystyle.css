@@ -1,0 +1,62 @@
+﻿/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+}
+.prefooter {
+  margin: 15px 0 0 0;
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 200px;
+  background-color: #e0e0e0;
+}
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+/* Not required for template or sticky footer method. */
+
+.main-container {
+  margin-bottom: 210px;
+  max-width: 1280px;
+  width: auto;
+}
+.additional-container {
+  max-width: 980px; 
+  width: auto;
+}
+.additional-container-nav {
+  margin-left: auto;
+  margin-right: auto;
+}
+.container .text-muted {
+  margin: 20px 0;
+}
+.text-input-new-keywords {
+  max-width:100%; 
+}
+.contaner-textarea-keywords {
+  margin-bottom: 60px;
+}
+.contaner-btn-send-keywords {
+  margin-bottom: 8px;
+  margin-top: 8px;
+}
+.navbar-main-index{
+  margin-bottom: 0px;
+}
