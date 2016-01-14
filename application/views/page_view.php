@@ -56,7 +56,7 @@ if(empty($_SESSION["yandex_token"]))
 }
 else
 {
-    echo "token: ".$_SESSION["yandex_token"];
+    echo "Ваш яндекс аккаунт подключен. Ваш token: ".$_SESSION["yandex_token"]."<br>";
 }
             //выше вывели меню 
 if ($myrow['login'] == $login) { ?>
