@@ -47,9 +47,8 @@ if (empty($myrow['login'])) {    exit("Пользователя не сущес�
             |<a href='page.php?id=$myrow2[id]'>Моя страница</a>|<a href='index.php'>Главная страница</a>|<a href='all_users.php'>Список пользователей</a>|<a href='exit.php'>Выход</a><br><br>
 <?php if(empty($_SESSION["yandex_token"])) {
     ?>
-    <br/>
     <a href="https://oauth.yandex.ru/authorize?response_type=code&client_id=06441eef0fa841478f8b2f73d6519117">Логин</a>
-
+    <br/>
 
     <?php
 }
