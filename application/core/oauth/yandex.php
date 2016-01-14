@@ -25,10 +25,11 @@ class OAuth
             );
 
             $query = http_build_query($query);
-
+            var_dump($query);
             $result = $this->file_get_contents_curl('https://oauth.yandex.ru/token', $query);
-
+            var_dump($result);
             $result = json_decode($result);
+            var_dump($result);
             $dbManager = DbManager::getInstance();
             // Токен необходимо сохранить для использования в запросах к API Директа
             $dbManager->setYandexToken($_SESSION["id"], $result->token, $result->expires_in);
