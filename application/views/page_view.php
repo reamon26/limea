@@ -54,7 +54,8 @@ if (empty($myrow['login'])) {    exit("Пользователя не сущес�
 }
 else
 {
-    print $_SESSION["yandex_token"];
+    echo "test ".$_SESSION["yandex_token"];
+    var_dump($_SESSION["yandex_token"]);
 }
             //выше вывели меню 
 if ($myrow['login'] == $login) { ?>
