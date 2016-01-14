@@ -54,7 +54,7 @@ class DbManager
         $now->add(new \DateInterval("PT".$tokenLifespanSeconds."S"));
         print "ok"."<br>";
         print "update users set yandex_token = '".$token."', yandex_token_date = '".$now."' where id='".$userId."'";
-        $result = $this->DbConn->query("update users set yandex_token = '".$token."', yandex_token_date = '".$now."' where id='".$userId."'");
+        $result = $this->DbConn->query("update users set yandex_token = '".$token."', yandex_token_date = '".$now->format("Y-m-d H:i:s")."' where id='".$userId."'");
         var_dump($result);
     }
 }
