@@ -2,7 +2,7 @@
 
 //
 use limea\db;
-$dbManager = limea\db\DbManager::getInstance();
+$dbManager = db\DbManager::getInstance();
 
 
 if(!empty($_SESSION["id"])) {
