@@ -45,9 +45,11 @@ class DbManager
 
     public function setYandexToken($userId, $token, $tokenLifespanSeconds)
     {
+        print "<pre>";
         print $userId;
         print $token;
         print $tokenLifespanSeconds;
+        print "</pre>";
         $now = new \DateTime();
         $now->add(new \DateInterval("PT".$tokenLifespanSeconds."S"));
         $result = $this->DbConn->query("update users set yandex_token = '".$token."', yandex_token_date = '".$now."' where id='".$userId."'");
