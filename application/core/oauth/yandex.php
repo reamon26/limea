@@ -1,25 +1,43 @@
 <?php
+//http://php.net/manual/en/language.namespaces.definition.php
+namespace limea\oauth;
 
-// Идентификатор приложения
-$client_id = '06441eef0fa841478f8b2f73d6519117';
-// Пароль приложения
-$client_secret = '0de12ac3680a4d09beaf4360039c9a22';
+use limea\db\DbManager;
 
-// Если скрипт был вызван с указанием параметра "code" в URL,
-// то выполняется запрос на получение токена
-if (isset($_GET['code']))
+class OAuth
 {
-    // Формирование параметров (тела) POST-запроса с указанием кода подтверждения
-    $query = array(
-        'grant_type' => 'authorization_code',
-        'code' => $_GET['code'],
-        'client_id' => $client_id,
-        'client_secret' => $client_secret
-    );
-    $query = http_build_query($query);
+	// Идентификатор приложения
+	private $client_id = '06441eef0fa841478f8b2f73d6519117';
+	// Пароль приложения
+	private $client_secret = '40b19d39b6764feb8ac765e3def7d637';
 
+	public function finishOAuth(){
+        // Если скрипт был вызван с указанием параметра "code" в URL,
+        // то выполняется запрос на получение токена
+        if (isset($_GET['code']))
+        {
+            // Формирование параметров (тела) POST-запроса с указанием кода подтверждения
+            $query = array(
+            'grant_type' => 'authorization_code',
+            'code' => $_GET['code'],
+            'client_id' => $this->client_id,
+            'client_secret' => $this->client_secret
+            );
 
-    function file_get_contents_curl($url, $params) {
+            $query = http_build_query($query);
+
+            $result = $this->file_get_contents_curl('https://oauth.yandex.ru/token', $query);
+
+            $result = json_decode($result);
+
+            $dbManager = DbManager::getInstance();
+            // Токен необходимо сохранить для использования в запросах к API Директа
+            $dbManager->setYandexToken($_SESSION["id"], $result->access_token, $result->expires_in);
+        }
+	}
+
+    private function file_get_contents_curl($url, $params)
+    {
         $ch = curl_init();
 
         curl_setopt($ch, CURLOPT_AUTOREFERER, TRUE);
@@ -35,12 +53,4 @@ if (isset($_GET['code']))
 
         return $data;
     }
-
-    $result = file_get_contents_curl('https://oauth.yandex.ru/token', $query);
-
-    $result = json_decode($result);
-
-    // Токен необходимо сохранить для использования в запросах к API Директа
-    $dbManager->saveYandexToken($_SESSION["id"], $result->token, $result->expires_in);
 }
-?>
