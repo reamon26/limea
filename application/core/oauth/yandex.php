@@ -29,6 +29,7 @@ class OAuth
             $result = $this->file_get_contents_curl('https://oauth.yandex.ru/token', $query);
 
             $result = json_decode($result);
+            var_dump($result);
 
             $dbManager = DbManager::getInstance();
             // Токен необходимо сохранить для использования в запросах к API Директа
