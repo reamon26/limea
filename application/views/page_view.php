@@ -1,4 +1,5 @@
 <?php
+include "application/core/oauth/yandex.php";
 use limea\oauth;
 
 $Oauth = new oauth\OAuth();
