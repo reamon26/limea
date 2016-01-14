@@ -45,16 +45,20 @@ if (empty($myrow['login'])) {    exit("Пользователя не сущес�
 
 <h2>Пользователь "<?php echo    $myrow['login']; ?>"</h2>
             |<a href='page.php?id=$myrow2[id]'>Моя страница</a>|<a href='index.php'>Главная страница</a>|<a href='all_users.php'>Список пользователей</a>|<a href='exit.php'>Выход</a><br><br>
-
+<?php
+if(!empty($_SESSION["yandex_token"]))
+{
+    ?>
     <a href="https://oauth.yandex.ru/authorize?response_type=code&client_id=06441eef0fa841478f8b2f73d6519117">Логин</a>
     <br/>
 
     <?php
-
-
+}
+else
+{
     echo "test ".$_SESSION["yandex_token"];
     var_dump($_SESSION);
-
+}
             //выше вывели меню 
 if ($myrow['login'] == $login) { ?>
             //Если    страничка принадлежит вошедшему, то предлагаем изменить данные и выводим    личные сообщения
