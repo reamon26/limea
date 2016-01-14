@@ -45,16 +45,9 @@ class DbManager
 
     public function setYandexToken($userId, $token, $tokenLifespanSeconds)
     {
-
-        print $userId."<br>";
-        print $token."<br>";
-        print $tokenLifespanSeconds."<br>";
-
         $now = new \DateTime();
         $now->add(new \DateInterval("PT".$tokenLifespanSeconds."S"));
-        print "ok"."<br>";
-        print "update users set yandex_token = '".$token."', yandex_token_date = '".$now->format("Y-m-d H:i:s")."' where id='".$userId."'";
         $result = $this->DbConn->query("update users set yandex_token = '".$token."', yandex_token_date = '".$now->format("Y-m-d H:i:s")."' where id='".$userId."'");
-        var_dump($result);
+        return $result;
     }
 }

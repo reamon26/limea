@@ -56,8 +56,7 @@ if(empty($_SESSION["yandex_token"]))
 }
 else
 {
-    echo "test ".$_SESSION["yandex_token"];
-    var_dump($_SESSION);
+    echo "token: ".$_SESSION["yandex_token"];
 }
             //выше вывели меню 
 if ($myrow['login'] == $login) { ?>
