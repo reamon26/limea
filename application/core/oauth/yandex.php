@@ -9,7 +9,7 @@ class OAuth
 	// Идентификатор приложения
 	private $client_id = '06441eef0fa841478f8b2f73d6519117';
 	// Пароль приложения
-	private $client_secret = '0de12ac3680a4d09beaf4360039c9a22';
+	private $client_secret = '40b19d39b6764feb8ac765e3def7d637';
 
 	public function finishOAuth(){
         // Если скрипт был вызван с указанием параметра "code" в URL,
