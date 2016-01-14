@@ -1,5 +1,5 @@
 <?php
-include "php/DbManager.php";
+include_once "php/DbManager.php";
 //
 use limea\db;
 $dbManager = db\DbManager::getInstance();
