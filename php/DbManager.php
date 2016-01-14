@@ -37,7 +37,7 @@ class DbManager
 
     public function getYandexToken($userId)
     {
-        $queryResult = $this->DbConn->query("select yandex_token from users where id='".$userId."'");
+        $queryResult = $this->DbConn->query("select yandex_token from users where id='".$userId."' and yandex_token is not null");
         $values = mysqli_fetch_array($queryResult);
 
         return is_array($values) ? $values[0] : "";
